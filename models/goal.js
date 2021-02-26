@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const goalSchema = new Schema({
-  title: { type: String, required: true },
-  measurement: { type: String, required: true },
-  duration: { type: String, required: true },
+  title: { type: String },
+  measurement: { type: String},
+  duration: { type: String },
   notes: String,
   date: { type: Date, default: Date.now }
 });

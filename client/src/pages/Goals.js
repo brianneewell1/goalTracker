@@ -9,7 +9,7 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 
 function Goals() {
   // Setting our component's initial state
-  const [Goals, setGoals] = useState([])
+  const [goals, setGoals] = useState([])
   const [formObject, setFormObject] = useState({})
 
   // Load all Goals and store them with setGoals
@@ -63,22 +63,22 @@ function Goals() {
             <form>
               <Input
                 onChange={handleInputChange}
-                name="Goal Title"
-                placeholder="Run 1 mile (Title required)"
+                name="title"
+                placeholder="Run 1 mile"
               />
               <Input
                 onChange={handleInputChange}
-                name="Measurement"
-                placeholder="3 times a week (Measurement required)"
+                name="measurement"
+                placeholder="3 times a week"
               />
               <Input
                 onChange={handleInputChange}
-                name="Duration"
-                placeholder="For a Month(Duration required)"
+                name="duration"
+                placeholder="For a Month"
               />
               <TextArea
                 onChange={handleInputChange}
-                name="Additional Notes"
+                name="notes"
                 placeholder="I plan on running MWF at 7:00am (Optional)"
               />
               <FormBtn
@@ -92,16 +92,16 @@ function Goals() {
             <Jumbotron>
               <h1>My Goals</h1>
             </Jumbotron>
-            {Goals.length ? (
+            {goals.length ? (
               <List>
-                {Goals.map(goal => (
-                  <ListItem key={goal._id}>
-                    <Link to={"/goals/" + goal._id}>
+                {goals.map(goals => (
+                  <ListItem key={goals._id}>
+                    <Link to={"/goals/" + goals._id}>
                       <strong>
-                        {goal.title} for {goal.measurement} for {goal.duration}
+                        {goals.title} for {goals.measurement} for {goals.duration}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteGoal(goal._id)} />
+                    <DeleteBtn onClick={() => deleteGoal(goals._id)} />
                   </ListItem>
                 ))}
               </List>

@@ -104,4 +104,4 @@ dist
 .tern-port
 
 #dependencies
-/node_modues
+**/node_modues

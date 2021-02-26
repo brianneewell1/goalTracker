@@ -15,6 +15,11 @@ export default {
   },
   // Saves a goal to the database
   saveGoal: function(goalData) {
-    return axios.post("/api/goals", goalData);
+    console.log(goalData);
+    return axios.post("/api/goals", goalData, {
+      headers: {
+        'content-type': 'text/json'
+      }
+    });
   }
 };
