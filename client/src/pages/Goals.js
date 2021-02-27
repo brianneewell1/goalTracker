@@ -43,6 +43,7 @@ function Goals() {
   // Then reload goals from the database
   function handleFormSubmit(event) {
     event.preventDefault();
+    if (formObject.title) {
     API.saveGoal({
         title: formObject.title,
         measurement: formObject.measurement,
@@ -51,6 +52,7 @@ function Goals() {
       })
         .then(res => loadGoals())
         .catch(err => console.log(err));
+    }
   };
 
     return (
@@ -93,15 +95,16 @@ function Goals() {
               <h1>My Goals</h1>
             </Jumbotron>
             {goals.length ? (
+              console.log(goals),
               <List>
-                {goals.map(goals => (
-                  <ListItem key={goals._id}>
-                    <Link to={"/goals/" + goals._id}>
+                {goals.map(goal => (
+                  <ListItem key={goal._id}>
+                    <Link to={"/goals/" + goal._id}>
                       <strong>
-                        {goals.title} for {goals.measurement} for {goals.duration}
+                        {goal.title} for {goal.measurement} for {goal.duration}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteGoal(goals._id)} />
+                    <DeleteBtn onClick={() => deleteGoal(goal._id)} />
                   </ListItem>
                 ))}
               </List>
