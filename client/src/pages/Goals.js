@@ -39,7 +39,7 @@ function Goals() {
     setFormObject({...formObject, [name]: value})
   };
 
-  // When the form is submitted, use the API.saveGoal method to save the goal data
+   // When the form is submitted, use the API.saveGoal method to save the goal data
   // Then reload goals from the database
   function handleFormSubmit(event) {
     event.preventDefault();
